@@ -9,6 +9,8 @@ npm install
 npm run dev
 ```
 
+Alternativ steht die credential-freie [öffentliche Live-Demo](https://yongshicc.github.io/fintrace/) bereit.
+
 ## 1. Herkunft statt Black Box
 
 Öffne das Repayment Studio mit den Standardwerten. Zeige Monatsrate, Gesamtrückzahlung und Gesamtzinsen sowie die Herkunftszeile direkt darunter.

@@ -17,6 +17,10 @@ Für einen schnellen technischen Einstieg:
 3. [Architekturentscheidungen](docs/decisions.md)
 4. [Teststrategie](docs/test-strategy.md)
 
+## Live-Demo
+
+[FinTrace Repayment Studio öffnen](https://yongshicc.github.io/fintrace/)
+
 ## Lokale Entwicklung
 
 Voraussetzung: Node.js 22 und npm 10 oder kompatible neuere Versionen.
