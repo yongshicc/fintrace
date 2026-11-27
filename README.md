@@ -21,6 +21,51 @@ Für einen schnellen technischen Einstieg:
 
 [FinTrace Repayment Studio öffnen](https://yongshicc.github.io/fintrace/)
 
+### Mobile Experience
+
+The same deterministic simulation workflow is available in a responsive mobile layout without horizontal overflow.
+
+<p align="center">
+  <img src="docs/design/fintrace-mobile-landing.png" alt="FinTrace mobile landing page with the responsive credit simulation form" width="390">
+</p>
+
+## About Me
+
+Vienna-based developer with an interdisciplinary background in Digital Humanities, frontend engineering and AI-driven product development.
+
+I build interactive web applications, explore local AI systems and develop reliable, traceable software solutions.
+
+## Achievements
+
+🏆 **2nd Place — Track: Think Fast: Local Decision Models**<br>
+Building Better Worlds Hackathon · proximata × START Vienna × HOIV<br>
+November 2026 · Solo Participant · DecideFast
+
+🏆 **2nd Place — Clinical AI Hackathon Vienna 2026**<br>
+AIM Austria · October 2026
+
+## Featured Projects
+
+### FinTrace — Traceable Financial Intelligence
+
+Interactive credit simulations, deterministic financial calculations and traceable AI explanations.
+
+[Live Demo](https://yongshicc.github.io/fintrace/) | [Source Code](https://github.com/yongshicc/fintrace)
+
+### DecideFast — Offline Decision Intelligence
+
+Award-winning local AI decision-support system with automated workflows and human-in-the-loop review.
+
+[Source Code](https://github.com/yongshicc/Decisionfast-Agent)
+
+## Tech Stack
+
+React · TypeScript · JavaScript · Python · REST APIs · n8n · LLM · GitHub Actions · Vitest · Playwright
+
+## Development Philosophy
+
+**AI-assisted development. Human understanding. Verifiable results.**
+
 ## Lokale Entwicklung
 
 Voraussetzung: Node.js 22 und npm 10 oder kompatible neuere Versionen.
