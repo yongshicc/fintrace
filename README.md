@@ -8,7 +8,7 @@ FinTrace ist ein unabhängiges Engineering-Portfolio-Projekt für transparente K
 
 ## Status
 
-Phase 0 bis Phase 7 sind umgesetzt. FinTrace umfasst einen deterministischen Rechenkern, ein responsives Repayment Studio, Zinsszenarien, einen verifizierten Recorded Assistant, automatisierte Qualitäts- und Bereitstellungsprozesse, optionale REST-/MCP-/Retrieval-Adapter sowie ein vollständiges technisches Review-Paket.
+Phase 0 bis Phase 7 sind umgesetzt. FinTrace umfasst einen deterministischen Rechenkern, ein responsives Repayment Studio, Zinsszenarien, einen verifizierten aufgezeichneten Assistenten, automatisierte Qualitäts- und Bereitstellungsprozesse, optionale REST-/MCP-/Retrieval-Adapter sowie ein vollständiges technisches Prüfpaket.
 
 Für einen schnellen technischen Einstieg:
 
@@ -21,50 +21,50 @@ Für einen schnellen technischen Einstieg:
 
 [FinTrace Repayment Studio öffnen](https://yongshicc.github.io/fintrace/)
 
-### Mobile Experience
+### Mobile Ansicht
 
-The same deterministic simulation workflow is available in a responsive mobile layout without horizontal overflow.
+Der gleiche deterministische Simulationsablauf steht auch in einem responsiven mobilen Layout ohne horizontales Überlaufen zur Verfügung.
 
 <p align="center">
-  <img src="docs/design/fintrace-mobile-landing.png" alt="FinTrace mobile landing page with the responsive credit simulation form" width="390">
+  <img src="docs/design/fintrace-mobile-landing.png" alt="Mobile FinTrace-Startseite mit responsivem Formular zur Kreditsimulation" width="390">
 </p>
 
-## About Me
+## Über mich
 
-Vienna-based developer with an interdisciplinary background in Digital Humanities, frontend engineering and AI-driven product development.
+Ich bin Entwickler in Wien mit einem interdisziplinären Hintergrund in Digital Humanities, Frontend-Entwicklung und KI-gestützter Produktentwicklung.
 
-I build interactive web applications, explore local AI systems and develop reliable, traceable software solutions.
+Ich entwickle interaktive Webanwendungen, erforsche lokale KI-Systeme und realisiere zuverlässige, nachvollziehbare Softwarelösungen.
 
-## Achievements
+## Auszeichnungen
 
-🏆 **2nd Place — Track: Think Fast: Local Decision Models**<br>
+🏆 **2. Platz — Kategorie: Think Fast: Local Decision Models**<br>
 Building Better Worlds Hackathon · proximata × START Vienna × HOIV<br>
-November 2026 · Solo Participant · DecideFast
+November 2026 · Einzelteilnehmer · DecideFast
 
-🏆 **2nd Place — Clinical AI Hackathon Vienna 2026**<br>
-AIM Austria · October 2026
+🏆 **2. Platz — Clinical AI Hackathon Vienna 2026**<br>
+AIM Austria · Oktober 2026
 
-## Featured Projects
+## Ausgewählte Projekte
 
 ### FinTrace — Traceable Financial Intelligence
 
-Interactive credit simulations, deterministic financial calculations and traceable AI explanations.
+Interaktive Kreditsimulationen, deterministische Finanzberechnungen und nachvollziehbare KI-Erklärungen.
 
-[Live Demo](https://yongshicc.github.io/fintrace/) | [Source Code](https://github.com/yongshicc/fintrace)
+[Live-Demo](https://yongshicc.github.io/fintrace/) | [Quellcode](https://github.com/yongshicc/fintrace)
 
 ### DecideFast — Offline Decision Intelligence
 
-Award-winning local AI decision-support system with automated workflows and human-in-the-loop review.
+Preisgekröntes lokales KI-System zur Entscheidungsunterstützung mit automatisierten Arbeitsabläufen und menschlicher Kontrolle.
 
-[Source Code](https://github.com/yongshicc/Decisionfast-Agent)
+[Quellcode](https://github.com/yongshicc/Decisionfast-Agent)
 
-## Tech Stack
+## Technologiestack
 
 React · TypeScript · JavaScript · Python · REST APIs · n8n · LLM · GitHub Actions · Vitest · Playwright
 
-## Development Philosophy
+## Entwicklungsphilosophie
 
-**AI-assisted development. Human understanding. Verifiable results.**
+**KI-gestützte Entwicklung. Menschliches Verständnis. Überprüfbare Ergebnisse.**
 
 ## Lokale Entwicklung
 
@@ -95,9 +95,9 @@ npx playwright install chromium
 
 ## CI und öffentliche Bereitstellung
 
-`.github/workflows/ci.yml` führt für jeden Push und Pull Request Tests, Referenzprüfung, Typecheck, Linting, Formatprüfung, Build und Browser-Smoke-Tests aus. Nach einem erfolgreichen Quality-Lauf auf `main` erstellt `.github/workflows/deploy-pages.yml` eine statische GitHub-Pages-Ausgabe. Alternativ lässt sich die Bereitstellung manuell starten.
+`.github/workflows/ci.yml` führt für jeden Push und Pull Request Tests, Referenzprüfung, Typprüfung, Codeprüfung, Formatprüfung, Erstellung und Browser-Kurztests aus. Nach einem erfolgreichen Qualitätslauf auf `main` erstellt `.github/workflows/deploy-pages.yml` eine statische GitHub-Pages-Ausgabe. Alternativ lässt sich die Bereitstellung manuell starten.
 
-Im GitHub-Repository muss unter **Settings → Pages → Build and deployment** einmalig **GitHub Actions** als Quelle gewählt werden. Die Veröffentlichung verwendet ausschließlich GitHub-OIDC und benötigt keine bezahlten API-Zugangsdaten oder Client-Secrets.
+Im GitHub-Repository muss unter **Settings → Pages → Build and deployment** einmalig **GitHub Actions** als Quelle gewählt werden. Die Veröffentlichung verwendet ausschließlich GitHub-OIDC und benötigt keine bezahlten API-Zugangsdaten oder clientseitigen Geheimnisse.
 
 ## Architektur
 
@@ -120,9 +120,9 @@ Weitere Details:
 
 **KI erklärt. Der Rechner rechnet.** Finanzielle Zahlen entstehen ausschließlich im deterministischen Rechenkern, niemals in einem Sprachmodell.
 
-Der aktuelle Assistent ist eine öffentliche Recorded Demo: Er verwendet vorab geprüfte Erklärungstexte und zeigt ausschließlich Werte aus typisierten Engine-Ergebnissen. Es findet kein Live-Aufruf eines Sprachmodells statt.
+Der aktuelle Assistent ist eine öffentliche aufgezeichnete Demo: Er verwendet vorab geprüfte Erklärungstexte und zeigt ausschließlich Werte aus typisierten Ergebnissen des Rechenkerns. Es findet kein direkter Aufruf eines Sprachmodells statt.
 
-## Disclaimer
+## Haftungsausschluss
 
 FinTrace ist ein unabhängiges Portfolio-Projekt zur Simulation von Kreditkosten. Keine Kreditberatung und kein Kreditangebot. Es besteht keine Verbindung zu CHECK24.
 
