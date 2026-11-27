@@ -5,6 +5,11 @@ import {
   simulateExtraRepayment,
 } from '../../engine';
 import { LoanForm } from './components/LoanForm';
+import {
+  EngineeringSection,
+  PrincipleSection,
+  ReferenceCases,
+} from './components/LandingSections';
 import { RepaymentTable } from './components/RepaymentTable';
 import { ResultSummary } from './components/ResultSummary';
 import { ScenarioComparison } from './components/ScenarioComparison';
@@ -104,91 +109,136 @@ export function RepaymentStudio() {
     simulation.extraResult?.alternativeSchedule ?? simulation.originalSchedule;
 
   return (
-    <div className="min-h-screen bg-[#08111f] text-slate-100">
-      <StudioHeader />
-      <main className="mx-auto max-w-[1500px] px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
-        <div className="mb-6 flex flex-col justify-between gap-5 lg:mb-8 lg:flex-row lg:items-end">
-          <div>
-            <h1 className="max-w-4xl text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
-              Kreditkosten nachvollziehbar simulieren
-            </h1>
-            <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-400 sm:text-base">
-              Annuitätendarlehen transparent berechnen, Rückzahlung verstehen
-              und Szenarien vergleichen.
-            </p>
-          </div>
-          <p className="border-l-2 border-emerald-300 pl-4 text-sm font-semibold text-slate-200 sm:text-base">
-            KI erklärt. Der Rechner rechnet.
-          </p>
-        </div>
+    <div className="site-frame" id="top">
+      <div className="hero-band">
+        <StudioHeader />
+        <main>
+          <section className="hero page-shell" aria-labelledby="hero-heading">
+            <div className="hero-copy">
+              <h1 id="hero-heading">
+                Kredite verstehen. Nicht nur vergleichen.
+              </h1>
+              <p>
+                FinTrace zeigt bei jeder Kreditzahl, woher sie kommt: Annahmen,
+                Rechenweg und die Wirkung einer Sondertilgung.
+              </p>
+              <ul className="trust-list">
+                <li>Alle Beträge entstehen im deterministischen Rechenkern.</li>
+                <li>
+                  Erklärungen verwenden ausschließlich verifizierte Ergebnisse.
+                </li>
+                <li>
+                  Kein Konto, keine persönlichen Daten, keine Live-KI nötig.
+                </li>
+              </ul>
+              <a className="hero-link" href="#studio">
+                Zum vollständigen Repayment Studio{' '}
+                <span aria-hidden="true">↓</span>
+              </a>
+            </div>
+            <div className="hero-calculator">
+              <aside aria-label="Simulationsparameter">
+                <LoanForm
+                  draft={draft}
+                  error={error}
+                  onChange={setDraft}
+                  onSubmit={handleSubmit}
+                />
+              </aside>
+              <ResultSummary calculation={simulation.calculation} />
+            </div>
+          </section>
+        </main>
+      </div>
 
-        <div className="studio-layout">
-          <aside aria-label="Simulationsparameter">
-            <LoanForm
-              draft={draft}
-              error={error}
-              onChange={setDraft}
-              onSubmit={handleSubmit}
-            />
-          </aside>
+      <PrincipleSection />
+
+      <main className="studio-main" id="studio">
+        <div className="page-shell">
+          <div className="studio-intro">
+            <div>
+              <h2>Kreditkosten nachvollziehbar simulieren</h2>
+              <p>
+                Annuitätendarlehen transparent berechnen, Rückzahlung verstehen
+                und Szenarien vergleichen.
+              </p>
+            </div>
+            <p className="studio-promise">KI erklärt. Der Rechner rechnet.</p>
+          </div>
 
           <div className="data-canvas">
-            <ResultSummary calculation={simulation.calculation} />
             <VerifiedAssistant
               calculation={simulation.calculation}
               extraResult={simulation.extraResult}
             />
-            <Suspense
-              fallback={
-                <div className="data-section h-[430px] animate-pulse bg-slate-900/30" />
-              }
-            >
-              <InterestRangeExplorer
-                principal={submitted.principal}
-                durationMonths={submitted.durationMonths}
-                currentAnnualRatePercent={submitted.annualRatePercent}
-                onSelectRate={handleSelectInterestRate}
+            <div className="studio-grid">
+              <Suspense
+                fallback={
+                  <div className="data-section h-[430px] animate-pulse bg-slate-100" />
+                }
+              >
+                <InterestRangeExplorer
+                  principal={submitted.principal}
+                  durationMonths={submitted.durationMonths}
+                  currentAnnualRatePercent={submitted.annualRatePercent}
+                  onSelectRate={handleSelectInterestRate}
+                />
+              </Suspense>
+              <Suspense
+                fallback={
+                  <div className="data-section h-[390px] animate-pulse bg-slate-100" />
+                }
+              >
+                <BalanceChart
+                  originalSchedule={simulation.originalSchedule}
+                  alternativeSchedule={
+                    simulation.extraResult?.alternativeSchedule ?? null
+                  }
+                />
+              </Suspense>
+            </div>
+            <div className="studio-grid studio-grid-bottom">
+              <ScenarioComparison
+                calculation={simulation.calculation}
+                extraResult={simulation.extraResult}
               />
-            </Suspense>
-            <Suspense
-              fallback={
-                <div className="data-section h-[390px] animate-pulse bg-slate-900/30" />
-              }
-            >
-              <BalanceChart
-                originalSchedule={simulation.originalSchedule}
-                alternativeSchedule={
-                  simulation.extraResult?.alternativeSchedule ?? null
+              <RepaymentTable
+                schedule={displayedSchedule}
+                highlightedMonth={
+                  submitted.extraRepaymentEnabled
+                    ? submitted.extraRepaymentMonth
+                    : null
                 }
               />
-            </Suspense>
-            <ScenarioComparison
-              calculation={simulation.calculation}
-              extraResult={simulation.extraResult}
-            />
-            <RepaymentTable
-              schedule={displayedSchedule}
-              highlightedMonth={
-                submitted.extraRepaymentEnabled
-                  ? submitted.extraRepaymentMonth
-                  : null
-              }
-            />
+            </div>
           </div>
-        </div>
 
-        <section className="assumption-strip" aria-label="Berechnungsannahmen">
-          <p>
-            <strong>Aktive Annahmen:</strong> {formatEuro(submitted.principal)},{' '}
-            {formatPercent(submitted.annualRatePercent)}, Monatsrate konstant,
-            gebührenfreies Festzinsmodell, Rundung nur für die Anzeige.
-          </p>
-        </section>
+          <section
+            className="assumption-strip"
+            aria-label="Berechnungsannahmen"
+          >
+            <p>
+              <strong>Aktive Annahmen:</strong>{' '}
+              {formatEuro(submitted.principal)},{' '}
+              {formatPercent(submitted.annualRatePercent)}, Monatsrate konstant,
+              gebührenfreies Festzinsmodell, Rundung nur für die Anzeige.
+            </p>
+          </section>
+        </div>
       </main>
-      <footer className="border-t border-slate-800 px-4 py-6 text-center text-xs leading-5 text-slate-500 sm:px-6">
-        FinTrace ist ein unabhängiges Portfolio-Projekt zur Simulation von
-        Kreditkosten. Keine Kreditberatung und kein Kreditangebot. Es besteht
-        keine Verbindung zu CHECK24.
+
+      <ReferenceCases />
+      <EngineeringSection />
+      <footer className="site-footer">
+        <div className="page-shell footer-inner">
+          <strong>FinTrace</strong>
+          <p>
+            Unabhängiges Portfolio-Projekt zur Simulation von Kreditkosten.
+            Keine Kreditberatung und kein Kreditangebot. Es besteht keine
+            Verbindung zu CHECK24 oder einem anderen Anbieter.
+          </p>
+          <a href="#top">Nach oben ↑</a>
+        </div>
       </footer>
     </div>
   );
